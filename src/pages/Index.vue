@@ -7,9 +7,9 @@
  * @LastEditTime: 2021-02-03 10:07:36
 -->
 <template>
-  <Layout>
+
     <div>1</div>
-  </Layout>
+  
 </template>
 
 <script>

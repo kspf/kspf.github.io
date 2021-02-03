@@ -1,0 +1,34 @@
+{
+    "menu": [
+        {
+            "title": "最新动态",
+            "icon": "el-icon-star-off",
+            "path": "/new"
+        },
+        {
+            "title": "社交圈",
+            "icon": "el-icon-mobile-phone",
+            "path": "/social"
+        },
+        {
+            "title": "博客列表",
+            "icon": "el-icon-edit-outline",
+            "path": "/blog"
+        },
+        {
+            "title": "开源项目",
+            "icon": "el-icon-service",
+            "path": "/project"
+        },
+        {
+            "title": "使用帮助",
+            "icon": "el-icon-printer",
+            "path": "/helper"
+        },
+        {
+            "title": "README.md ",
+            "icon": "el-icon-document",
+            "path": "/readme"
+        }
+    ]
+}
