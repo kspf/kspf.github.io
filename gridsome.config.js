@@ -4,7 +4,7 @@
  * @Author: 马琳峰
  * @Date: 2021-02-02 16:29:41
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-03 10:16:14
+ * @LastEditTime: 2021-02-03 12:16:24
  */
 // This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
@@ -14,5 +14,6 @@
 
 module.exports = {
   siteName: 'Gridsome',
-  plugins: []
+  plugins: [],
+  outputDir: 'docs'
 }
