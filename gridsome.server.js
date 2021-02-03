@@ -58,6 +58,7 @@ module.exports = function (api) {
       description: data.description,
       createTime: data.created_at,
       updateTime: data.updated_at,
+      id: data.id
     };
 
 
