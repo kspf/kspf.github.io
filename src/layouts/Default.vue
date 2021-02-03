@@ -4,13 +4,10 @@
  * @Author: 马琳峰
  * @Date: 2021-02-02 16:29:41
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-03 11:15:04
+ * @LastEditTime: 2021-02-03 18:00:17
 -->
 <template>
     <div>
-        123
-    </div>
-    <!-- <div>
         <section
             class="page-header"
             :style="
@@ -99,14 +96,14 @@
                             </el-submenu>
                             <el-submenu
                                 index="#webSites"
-                                v-if="configuration.weblists.length > 0"
+                                v-if="configuration.webSites.length > 0"
                             >
                                 <template slot="title">其他网站</template>
                                 <el-menu-item
                                     :index="'#webSites-' + index"
                                     v-for="(
                                         item, index
-                                    ) in configuration.weblists"
+                                    ) in configuration.webSites"
                                     :key="'#webSites' + index"
                                     >{{ item.name }}</el-menu-item
                                 >
@@ -177,13 +174,13 @@
 
                         <audio ref="music" loop autoplay v-if="audioAutoPlay">
                             <source
-                                :src="baseUrl + configuration.audio.url"
+                                :src="configuration.audioUrl"
                                 type="audio/mpeg"
                             />
                         </audio>
                         <audio ref="music" loop v-else>
                             <source
-                                :src="baseUrl + configuration.audio.url"
+                                :src="configuration.audioUrl"
                                 type="audio/mpeg"
                             />
                         </audio>
@@ -200,7 +197,9 @@
                         </div>
                         <div style="color: #606266">
                             <i class="el-icon-location"></i>&nbsp;{{
-                                location ? location : '未填写地址'
+                                configuration.location
+                                    ? configuration.location
+                                    : '未填写地址'
                             }}
                             <br />
                         </div>
@@ -208,7 +207,7 @@
                     <el-col :span="2" style="text-align: center">
                         <img
                             v-popover:bigAvatar
-                            :src="avatarUrl"
+                            :src="configuration.avatar_url"
                             style="
                                 margin-top: 4px;
                                 margin-right: 10px;
@@ -225,12 +224,16 @@
                             width="200"
                             trigger="hover"
                         >
-                            <i class="el-icon-star-on"></i>&emsp;{{ name }}
+                            <i class="el-icon-star-on"></i>&emsp;{{
+                                configuration.name
+                            }}
                             <br />
-                            <i class="el-icon-location"></i>&emsp;{{ location }}
+                            <i class="el-icon-location"></i>&emsp;{{
+                                configuration.location
+                            }}
                             <br />
                             <img
-                                :src="avatarUrl"
+                                :src="configuration.avatar_url"
                                 style="width: 200px; height: 200px"
                             />
                         </el-popover>
@@ -238,38 +241,113 @@
                 </el-row>
             </el-card>
         </div>
-        <slot />
-        <section class="foot">
-           <div style="border-top: 1px #e1e4e8 solid !important;padding: 45px 0px 45px 0px;">
+        <section class="main-content">
             <el-row>
-              <el-col :span="10">
-                <div>
-                  © 2018 GitHub-Laziji&emsp;&emsp;
-                  <a href="https://github.com/GitHub-Laziji" target="_blank">Profile</a>&emsp;&emsp;
-                  <a href="https://github.com/GitHub-Laziji/vblog" target="_blank">VBlog</a>
-                </div>
-              </el-col>
-              <el-col :span="4">
-                <div style="text-align: center;font-size: 18px">
-                  <i class="el-icon-location-outline"></i>
-                </div>
-              </el-col>
-              <el-col :span="10">
-                <div style="float: right;">
-                  <a href="https://developer.github.com" target="_blank">GitHub-API</a>&emsp;&emsp;
-                  <a href="https://cn.vuejs.org/" target="_blank">Vue.js</a>&emsp;&emsp;
-                  <a href="http://element.eleme.io/" target="_blank">Element</a>
-                </div>
-              </el-col>
+                <el-col :span="6" style="padding-right: 10px">
+                    <sidebar></sidebar>
+                </el-col>
+                <el-col :span="18" style="padding-left: 10px">
+                    <section>
+                        <transition name="fade">
+                            <slot></slot>
+                        </transition>
+                    </section>
+                </el-col>
             </el-row>
-	        </div>
         </section>
-    </div> -->
+        <section class="foot">
+            <div
+                style="
+                    border-top: 1px #e1e4e8 solid !important;
+                    padding: 45px 0px 45px 0px;
+                "
+            >
+                <el-row>
+                    <el-col :span="10">
+                        <div>
+                            © 2018 GitHub-Laziji&emsp;&emsp;
+                            <a
+                                href="https://github.com/GitHub-Laziji"
+                                target="_blank"
+                                >Profile</a
+                            >&emsp;&emsp;
+                            <a
+                                href="https://github.com/GitHub-Laziji/vblog"
+                                target="_blank"
+                                >VBlog</a
+                            >
+                        </div>
+                    </el-col>
+                    <el-col :span="4">
+                        <div style="text-align: center; font-size: 18px">
+                            <i class="el-icon-location-outline"></i>
+                        </div>
+                    </el-col>
+                    <el-col :span="10">
+                        <div style="float: right">
+                            <a
+                                href="https://developer.github.com"
+                                target="_blank"
+                                >GitHub-API</a
+                            >&emsp;&emsp;
+                            <a href="https://cn.vuejs.org/" target="_blank"
+                                >Vue.js</a
+                            >&emsp;&emsp;
+                            <a href="http://element.eleme.io/" target="_blank"
+                                >Element</a
+                            >
+                        </div>
+                    </el-col>
+                </el-row>
+            </div>
+        </section>
+    </div>
 </template>
 
-
+<static-query>
+query{
+  allConfiguration{
+    edges{
+      node{
+        id
+				githubUsername
+        blogTitle
+        htmlTitle
+        fontColor
+        useBackgroundImage
+        useBackgroundImage
+        backgroundColorLeft
+        blogDescribe
+        backgroundColorRight
+        audioUrl
+        mini
+        webSites{
+          name
+          url
+        }
+        
+      }
+    }
+  }
+  allUserInfo {
+    edges {
+      node {
+        id
+        avatar_url
+        name
+        location
+        blog
+        followers
+        following
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
+import appMin from './../components/AppMain';
+import sidebar from './../components/Sidebar';
 export default {
     data() {
         return {
@@ -286,19 +364,19 @@ export default {
                 active: '',
             },
             randomIcon: [],
-
-            audioAutoPlay: '',
-            avatarUrl: '',
-            location: '',
-            name: '',
+            audioAutoPlay: true,
         };
+    },
+    components: {
+        appMin,
+        sidebar
     },
     computed: {
         configuration() {
-            return this.$static.allStrapiConfigurations.edges[0].node;
-        },
-        baseUrl() {
-            return this.$static.allBaseUrl.edges[0].node.url;
+            return Object.assign(
+                this.$static.allConfiguration.edges[0].node,
+                this.$static.allUserInfo.edges[0].node
+            );
         },
     },
     mounted() {
@@ -355,7 +433,7 @@ export default {
                 default:
                     if (/#webSites-\d+/.test(index)) {
                         let i = parseInt(index.split('-')[1]);
-                        let url = this.configuration.weblists[i].url;
+                        let url = this.configuration.webSites[i].url;
                         window.open(
                             (url.match(/https?:\/\//i) ? '' : 'https://') + url
                         );
@@ -403,6 +481,15 @@ export default {
 
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
 body,
 html {
     margin: 0;

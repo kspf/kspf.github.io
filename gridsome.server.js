@@ -4,18 +4,33 @@
  * @Author: 马琳峰
  * @Date: 2021-02-02 16:29:41
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-03 14:23:33
+ * @LastEditTime: 2021-02-03 17:35:38
  */
-// Server API makes it possible to hook into various parts of Gridsome
-// on server-side and add custom data to the GraphQL data layer.
-// Learn more: https://gridsome.org/docs/server-api/
-
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
-
-const project = require('./store/project')
-
+const axios = require('axios')
+const configurationData = require('./static/configuration.json')
 module.exports = function (api) {
-  // 
-  project.getBlogConfigure(api);
+
+
+  api.loadSource(async ({ addCollection }) => {
+
+    const configuration = addCollection('configuration');
+
+    configuration.addNode({
+      ...configurationData
+    })
+
+  })
+
+  api.loadSource(async ({ addCollection }) => {
+
+    const { data } = await axios.get(`https://api.github.com/users/${configurationData.githubUsername}`);
+
+
+    const configuration = addCollection('userInfo');
+
+    configuration.addNode({
+      ...data
+    })
+
+  })
 }
