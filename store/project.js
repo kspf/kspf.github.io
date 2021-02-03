@@ -4,21 +4,23 @@
  * @Author: 马琳峰
  * @Date: 2021-02-03 10:55:03
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-03 11:12:55
+ * @LastEditTime: 2021-02-03 14:21:15
  */
 const axios = require('axios')
-axios
  
 module.exports = {
     getBlogConfigure(api){
         api.loadSource(async ({ addCollection }) => {
 
-            // axios.get('/static/configuration.json')
+            const {data} = await axios.get('https://kspf.github.io/configuration.json');
             
-            // const baseUrl = addCollection('baseUrl');
+            console.log(data);
+
+            
+            const configuration = addCollection('configuration');
           
-            baseUrl.addNode({
-              url: process.env.STRAPI_URL
+            configuration.addNode({
+                ...data
             })
             
         })

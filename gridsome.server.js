@@ -4,7 +4,7 @@
  * @Author: 马琳峰
  * @Date: 2021-02-02 16:29:41
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-03 10:57:44
+ * @LastEditTime: 2021-02-03 14:16:17
  */
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
@@ -16,5 +16,5 @@
 const project = require('./store/project')
 
 module.exports = function (api) {
-  // project(api);
+  project(api);
 }
