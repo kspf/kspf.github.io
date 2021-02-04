@@ -4,7 +4,7 @@
  * @Author: 马琳峰
  * @Date: 2021-02-02 16:29:41
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-03 17:35:38
+ * @LastEditTime: 2021-02-04 16:54:52
  */
 const axios = require('axios')
 const configurationData = require('./static/configuration.json');
@@ -75,4 +75,32 @@ module.exports = function (api) {
 
   })
 
+  // 被关注
+  api.loadSource(async ({ addCollection }) => {
+
+    const { data } = await axios.get(`https://api.github.com/users/${configurationData.githubUsername}/followers`);
+
+
+    const Collection = addCollection('followers');
+
+    Collection.addNode({
+      followers:data,
+      followersTotal: data.length
+    })
+  })
+  
+  //关注的用户
+  api.loadSource(async ({ addCollection }) => {
+
+    const { data } = await axios.get(`https://api.github.com/users/${configurationData.githubUsername}/following`);
+
+
+    const Collection = addCollection('following');
+
+    Collection.addNode({
+      following:data,
+      followingTotal: data.length
+    })
+  })
+  
 }
