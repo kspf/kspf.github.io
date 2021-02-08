@@ -80,17 +80,21 @@ query ($id: ID!){
 </page-query>
 
 <script>
+import store from  "./../store/index"
 export default {
   name: "blogDeails",
   data(){
       return {
-          token: ""
+          
       }
   },
   computed: {
     blog() {
       return this.$page.blogData;
     },
+    token(){
+      return store.state.token  
+    }
   },
   methods: {
     edit() {
@@ -101,10 +105,10 @@ export default {
         });
         return;
       }
-      this.$router.push("/user/blog/edit/" + this.blog.id);
+      this.$router.push("/edit/?id=" + this.blog.id);
     },
     more() {
-      this.$router.push("/user/blog/main");
+      this.$router.push("/blog");
     },
   },
 };

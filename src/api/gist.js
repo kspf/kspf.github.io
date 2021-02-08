@@ -36,3 +36,11 @@ export function adelete(id) {
         method: 'DELETE',
     })
 }
+
+
+
+export function single(id) {
+    return request({
+        url: '/gists/' + id
+    })
+}

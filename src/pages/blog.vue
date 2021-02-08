@@ -155,6 +155,7 @@
 <script>
 import { Pager } from "gridsome";
 import store from  "./../store/index"
+import { adelete } from "./../api/gist"
 export default {
   name: "blogPage",
   data() {
@@ -216,7 +217,7 @@ export default {
         });
         return;
       }
-      this.$router.push("/user/blog/edit/" + this.blogs[index].id);
+      this.$router.push("/edit/?id=" + this.blogs[index].node.id);
     },
     deleteBlog(index) {
       this.$confirm("是否永久删除该博客?", "提示", {
@@ -225,7 +226,7 @@ export default {
         type: "warning",
       }).then(() => {
         let blog = this.blogs[index];
-        GistApi.delete(blog.id).then((result) => {
+        adelete(blog.node.id).then((result) => {
           this.$message({
             message: "删除成功",
             type: "success",

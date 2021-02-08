@@ -101,7 +101,7 @@ export default {
     },
     methods:{
         more() {
-            this.$router.push('/user/project/main')     
+            this.$router.push('/project')     
         },
         async getProject(){
             const {data} = await getProject('kspf', this.project.name);
