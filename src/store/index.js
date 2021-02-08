@@ -46,6 +46,13 @@ const store = new Vuex.Store({
                 })
             })
         },
+        Cancellation({ commit }) {
+            commit('REMOVE_TOKEN')
+            Vue.prototype.$message({
+                message: 'Token取消绑定',
+                type: 'info'
+            })
+        },
     }
 })
 

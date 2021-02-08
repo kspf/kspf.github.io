@@ -103,7 +103,7 @@ export default {
       this.$refs.tokenDialog.open(() => {});
     },
     cancellation() {
-      this.$store.dispatch("Cancellation");
+      store.dispatch("Cancellation");
     },
     onSelect(index){
       this.active = index
