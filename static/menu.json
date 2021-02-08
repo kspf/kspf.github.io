@@ -19,16 +19,6 @@
             "title": "开源项目",
             "icon": "el-icon-service",
             "path": "/project"
-        },
-        {
-            "title": "使用帮助",
-            "icon": "el-icon-printer",
-            "path": "/helper"
-        },
-        {
-            "title": "README.md ",
-            "icon": "el-icon-document",
-            "path": "/readme"
         }
     ]
 }

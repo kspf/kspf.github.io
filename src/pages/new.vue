@@ -5,8 +5,8 @@
         <span>{{ gists.title }}</span>
       </div>
       <div style="font-size: 0.9rem; line-height: 1.5; color: #606c71">
-        发布 {{ gists.createTime }} <br />
-        更新 {{ gists.updateTime }}
+        发布 {{ gists.createTime | formatTime}} <br />
+        更新 {{ gists.updateTime | formatTime}}
       </div>
       <div
         style="

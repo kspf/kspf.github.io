@@ -356,7 +356,7 @@ export default {
                 active: '',
             },
             randomIcon: [],
-            audioAutoPlay: true,
+            audioAutoPlay: false,
         };
     },
     components: {

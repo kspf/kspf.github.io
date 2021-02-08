@@ -9,14 +9,14 @@
 <template>
   <div>
     <el-card shadow="never">
-      <el-menu :default-active="active">
+      <el-menu :default-active="active"  @select="onSelect">
         <g-link
-          v-for="item in constantRouterMap"
+          v-for="(item) in constantRouterMap"
           :key="item.path"
-          :index="item.path"
+          :index="item.path"  
           :to="item.path"
         >
-          <el-menu-item>
+          <el-menu-item :index="item.path">
             <i :class="item.icon"></i>
             <span slot="title">{{ item.title }}</span>
           </el-menu-item>
@@ -75,6 +75,7 @@ query{
 
 <script>
 import TokenDialog from "./TokenDialog";
+import store from  "./../store/index"
 export default {
   name: "sidebar",
   components: {
@@ -84,17 +85,18 @@ export default {
     return {
       active: "",
       parentUrl: "",
-      token: "",
     };
+  },
+  mounted(){
+    this.active = this.$route.path
   },
   computed: {
     constantRouterMap() {
       return this.$static.allMenu.edges[0].node.menu;
     },
-  },
-  mounted() {
-    let arr = this.$route.path.split("/");
-    this.active = "/" + arr[1] + "/" + arr[2];
+    token(){
+      return store.state.token
+    }
   },
   methods: {
     openTokenDialog() {
@@ -103,6 +105,9 @@ export default {
     cancellation() {
       this.$store.dispatch("Cancellation");
     },
+    onSelect(index){
+      this.active = index
+    }
   },
 };
 </script>

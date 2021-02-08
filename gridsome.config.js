@@ -15,5 +15,19 @@
 module.exports = {
   siteName: 'Gridsome',
   plugins: [],
-  outputDir: 'docs'
+  outputDir: 'docs',
+  templates: {
+    blogData: [
+      {
+        path: '/details/:id',
+        component: './src/templates/details.vue'
+      }
+    ],
+    repos: [
+      {
+        path: '/reDetails/:id',
+        component: './src/templates/prDetails.vue'
+      }
+    ]
+  }
 }

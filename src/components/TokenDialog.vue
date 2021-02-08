@@ -64,6 +64,7 @@ query{
 </static-query>
 
 <script>
+import store from './../store/index'
 export default {
   data() {
     return {
@@ -87,7 +88,11 @@ export default {
     onSubmit() {
       this.$refs["tokenForm"].validate((valid) => {
         if (valid) {
-          this.$store.dispatch("Authentication", this.tokenForm.token);
+
+          store.dispatch("Authentication", this.tokenForm.token);
+
+
+
           if (typeof this.handleClose == "function") {
             this.handleClose();
           }
