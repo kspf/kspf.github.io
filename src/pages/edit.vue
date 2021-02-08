@@ -15,6 +15,8 @@
         </el-form-item>
         <el-form-item label="博客正文" prop="content">
           <mavon-editor
+
+            v-if="load"
             @imgAdd="imgAdd"
             style="max-height: 500px"
             ref="md"
@@ -31,7 +33,7 @@
             :disabled="submitButton.disabled"
             >发表</el-button
           >
-          <el-button @click="$router.push('/user/blog/main')">返回</el-button>
+          <el-button @click="$router.push('/blog')">返回</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -50,6 +52,7 @@ export default {
   },
   data() {
     return {
+      load: false,
       form: {
         title: "",
         description: "",
@@ -136,6 +139,7 @@ export default {
             break
         }
     }).then(() => this.loading = false) 
+    this.load = true
   },
   methods: {
     imgAdd(pos, file) {

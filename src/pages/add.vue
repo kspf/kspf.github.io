@@ -15,6 +15,7 @@
         </el-form-item>
         <el-form-item label="博客正文" prop="content">
           <mavon-editor
+            v-if="load"
             @imgAdd="imgAdd"
             style="max-height: 500px"
             ref="md"
@@ -50,6 +51,7 @@ export default {
   },
   data() {
     return {
+      load:false,
       form: {
         title: "",
         description: "",
@@ -125,6 +127,7 @@ export default {
       });
       return;
     }
+    this.load = true;
   },
   methods: {
     imgAdd(pos, file) {
