@@ -6,6 +6,7 @@
     "fontColor": "#ffffff",
     "useBackgroundImage": false,
     "backgroundColorLeft": "#2690F9",
+    "content":"",
     "backgroundColorRight": "#FC2D2D",
     "audioUrl": "https://kspf.github.io//mis.mp3",
     "mini": false,

@@ -169,7 +169,7 @@
   </div>
 </template>
 <script>
-import { getConfiguration } from "./../api/user";
+import { getConfiguration, editBlogConfigure } from "./../api/user";
 import store from  "./../store/index"
 export default {
   data() {
@@ -231,7 +231,7 @@ export default {
       .then((response) => {
         let result = response.data;
         let base64 = require("js-base64").Base64;
-        let text = base64.decode(result.content);
+        let text = base64.decode(result.content || "");
         this.configure = JSON.parse(text);
         if (!this.configure.webSites) {
           this.$set(this.configure, "webSites", []);
@@ -247,7 +247,7 @@ export default {
         if (valid) {
           this.submitButton.loading = true;
           this.submitButton.disabled = true;
-          ProjectApi.editBlogConfigure(this.configure, this.configureSha)
+          editBlogConfigure(this.configure, this.configureSha)
             .then((response) => {
               let result = response.data;
               this.configureSha = result.content.sha;
