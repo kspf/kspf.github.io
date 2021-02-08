@@ -12,7 +12,7 @@ export function editBlogConfigure(configure, sha) {
     let content = JSON.stringify(configure)
     let githubUsername = 'kspf'
     return request({
-        url: 'https://api.github.com/repos/kspf/kspf.github.io/contents/static/configuration.json?ref=source',
+        url: '/repos/' + githubUsername + '/' + githubUsername + '.github.io/contents/static/configuration.json',
         method: 'PUT',
         data: {
             "message": "a",
