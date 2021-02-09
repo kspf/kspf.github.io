@@ -240,9 +240,7 @@
                 </el-col>
                 <el-col :span="18" style="padding-left: 10px">
                     <section>
-                        <transition name="fade">
-                            <router-view />
-                        </transition>
+                        <router-view />
                     </section>
                 </el-col>
             </el-row>

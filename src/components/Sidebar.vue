@@ -4,7 +4,7 @@
  * @Author: 马琳峰
  * @Date: 2021-02-03 17:55:48
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-03 18:06:45
+ * @LastEditTime: 2021-02-09 11:04:00
 -->
 <template>
   <div>
@@ -19,6 +19,16 @@
           <el-menu-item :index="item.path">
             <i :class="item.icon"></i>
             <span slot="title">{{ item.title }}</span>
+          </el-menu-item>
+        </g-link>
+         <g-link
+          :index="'/setting'"
+          :to="'/setting'"
+          v-if="token"
+        >
+          <el-menu-item index="/setting">
+            <i class="el-icon-service"></i>
+            <span slot="title">系统设置</span>
           </el-menu-item>
         </g-link>
       </el-menu>
@@ -74,7 +84,7 @@ query{
 </static-query>
 
 <script>
-import TokenDialog from "./TokenDialog";
+import TokenDialog from "./TokenDialog"
 import store from  "./../store/index"
 export default {
   name: "sidebar",

@@ -19,11 +19,6 @@
             "title": "开源项目",
             "icon": "el-icon-service",
             "path": "/project"
-        },
-        {
-            "title": "系统设置",
-            "icon": "el-icon-service",
-            "path": "/setting"
         }
     ]
 }

@@ -4,7 +4,7 @@
  * @Author: 马琳峰
  * @Date: 2021-02-02 16:29:41
  * @LastEditors: 马琳峰
- * @LastEditTime: 2021-02-04 16:54:52
+ * @LastEditTime: 2021-02-09 10:39:11
  */
 const axios = require('axios')
 const configurationData = require('./static/configuration.json');
@@ -154,6 +154,14 @@ module.exports = function (api) {
       })
     }
 
+  })
+
+
+  api.createPages(({ createPage }) => {
+    createPage({
+      path: '/',
+      component: './src/pages/new.vue'
+    })
   })
 
 }
