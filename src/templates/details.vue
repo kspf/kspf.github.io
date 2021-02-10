@@ -50,7 +50,7 @@
         <pre style="font-family: '微软雅黑'">{{ blog.description }}</pre>
       </div>
       <div
-        v-html="blog.content"
+        v-html="content"
         class="markdown-body"
         style="padding-top: 20px"
       ></div>
@@ -80,21 +80,33 @@ query ($id: ID!){
 </page-query>
 
 <script>
-import store from  "./../store/index"
+import markdownIt from 'markdown-it'
+const markdown = new markdownIt();
+import store from "./../store/index";
+import { single, edit } from "./../api/gist";
 export default {
   name: "blogDeails",
-  data(){
-      return {
-          
-      }
+  data() {
+    return {
+      content: '  '
+    };
   },
   computed: {
     blog() {
       return this.$page.blogData;
     },
-    token(){
-      return store.state.token  
-    }
+    token() {
+      return store.state.token;
+    },
+  },
+  mounted() {
+    single(this.blog.id).then((response) => {
+      let result = response.data;
+      for (let key in result.files) {
+        this["content"] =  markdown.render(result.files[key]["content"]);
+        break;
+      }
+    });
   },
   methods: {
     edit() {

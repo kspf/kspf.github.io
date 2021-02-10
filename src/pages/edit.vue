@@ -45,6 +45,7 @@
 import TokenDialog from "./../components/TokenDialog";
 import store from  "./../store/index"
 import { single, edit} from './../api/gist'
+import axios from 'axios'
 export default {
   name: "blogAddPage",
   components: {
@@ -172,6 +173,8 @@ export default {
             .then(() => {
               this.submitButton.loading = false;
               this.submitButton.disabled = false;
+              //请求更新
+              axios.post('https://api.vercel.com/v1/integrations/deploy/prj_ql4mLe466w6xWpkxpoOgrB3rOe7m/WntYuqN8vX')
             });
         }
       });

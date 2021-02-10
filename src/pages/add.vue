@@ -44,6 +44,7 @@
 import TokenDialog from "./../components/TokenDialog";
 import store from  "./../store/index"
 import { create } from './../api/gist'
+import axios from 'axios'
 export default {
   name: "blogAddPage",
   components: {
@@ -155,7 +156,8 @@ export default {
                 message: "发表成功",
                 type: "success",
               });
-              this.$router.push("/details/" + result.id);
+              this.$router.push("/blog");
+              axios.post('https://api.vercel.com/v1/integrations/deploy/prj_ql4mLe466w6xWpkxpoOgrB3rOe7m/WntYuqN8vX')
             })
             .then(() => {
               this.submitButton.loading = false;
