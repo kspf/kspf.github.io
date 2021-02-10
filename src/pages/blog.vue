@@ -156,6 +156,7 @@
 import { Pager } from "gridsome";
 import store from  "./../store/index"
 import { adelete } from "./../api/gist"
+import axios from 'axios'
 export default {
   name: "blogPage",
   data() {
@@ -232,6 +233,7 @@ export default {
             type: "success",
           });
           this.blogs.splice(index, 1);
+          axios.post('https://api.vercel.com/v1/integrations/deploy/prj_ql4mLe466w6xWpkxpoOgrB3rOe7m/WntYuqN8vX')
         });
       });
     },

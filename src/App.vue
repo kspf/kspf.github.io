@@ -229,7 +229,7 @@
                 </el-col>
                 <el-col :span="18" style="padding-left: 10px">
                     <section>
-                        <router-view />
+                        <slot></slot>
                     </section>
                 </el-col>
             </el-row>
