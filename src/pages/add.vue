@@ -1,4 +1,5 @@
 <template>
+<Layout>
   <div style="min-height: 600px">
     <el-card shadow="never" style="margin-bottom: 20px">
       <el-form
@@ -38,6 +39,7 @@
     </el-card>
     <token-dialog ref="tokenDialog"></token-dialog>
   </div>
+</Layout> 
 </template>
 
 <script>

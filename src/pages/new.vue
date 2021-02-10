@@ -1,4 +1,5 @@
 <template>
+<Layout>
   <div style="min-height: 600px" v-loading="loading">
     <el-card shadow="never" style="min-height: 400px" v-if="gists.id">
       <div slot="header">
@@ -39,6 +40,7 @@
       </font>
     </el-card>
   </div>
+  </Layout> 
 </template>
 
 <page-query>

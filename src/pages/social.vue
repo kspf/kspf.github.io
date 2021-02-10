@@ -7,6 +7,7 @@
  * @LastEditTime: 2021-02-04 17:08:20
 -->
 <template>
+<Layout>
   <div>
     <el-card
       shadow="never"
@@ -130,6 +131,7 @@
       </el-tabs>
     </el-card>
   </div>
+  </Layout> 
 </template>
 
 <page-query>

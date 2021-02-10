@@ -1,4 +1,5 @@
 <template>
+<Layout>
   <div style="min-height: 600px">
     <el-card shadow="never" style="margin-bottom: 20px">
       <el-input
@@ -119,6 +120,7 @@
       </font>
     </el-card>
   </div>
+  </Layout> 
 </template>
 
 

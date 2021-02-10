@@ -1,4 +1,5 @@
 <template>
+<Layout>
   <div style="min-height: 800px" v-loading="loading">
     <el-card shadow="never" style="min-height: 400px; margin-bottom: 20px">
       <el-form
@@ -167,6 +168,7 @@
       </el-form>
     </el-card>
   </div>
+  </Layout> 
 </template>
 <script>
 import { getConfiguration, editBlogConfigure } from "./../api/user";

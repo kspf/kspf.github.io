@@ -1,4 +1,5 @@
 <template>
+<Layout>
      <div style="min-height: 600px" >
         <el-card shadow="never" style="min-height: 400px">
             <div slot="header">
@@ -56,6 +57,7 @@
             </div>
         </el-card>
     </div>
+    </Layout> 
 </template>
 
 

@@ -15,7 +15,7 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import 'mavon-editor/dist/markdown/github-markdown.min.css'
 import util from './utils/util'
-
+import Layout from './layouts/Default'
 import ElementUI from 'element-ui'
 
 import 'element-ui/lib/theme-chalk/index.css'
@@ -49,7 +49,6 @@ Vue.filter('formatTime', function (value) {
     value = value.toString()
     return util.utcToLocal(value)
   })
-
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
