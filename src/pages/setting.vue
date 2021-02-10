@@ -168,11 +168,12 @@
       </el-form>
     </el-card>
   </div>
-  </Layout> 
+  </Layout>
 </template>
 <script>
 import { getConfiguration, editBlogConfigure } from "./../api/user";
 import store from  "./../store/index"
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -260,10 +261,8 @@ export default {
                 message: "修改配置成功",
                 type: "success",
               });
-              // this.$message({
-              //     message: '修改成功',
-              //     type: 'success'
-              // })
+              //请求更新  
+              axios.post('https://api.vercel.com/v1/integrations/deploy/prj_ql4mLe466w6xWpkxpoOgrB3rOe7m/WntYuqN8vX')
             })
             .then(() => {
               this.submitButton.loading = false;

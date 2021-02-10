@@ -46,7 +46,7 @@
                 >GitHub主页</a
             >
             <a
-                href="https://github.com/kspf/blog"
+                href="https://github.com/kspf/kspf.github.io"
                 class="btn"
                 target="_blank"
                 v-if="!configuration.mini"
