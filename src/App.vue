@@ -30,12 +30,7 @@
             <div
                 v-for="(item, index) in randomIcon"
                 :key="'ri' + index"
-                :style="
-                    'position:absolute; top:' +
-                    item.top +
-                    'px; left:' +
-                    item.left +
-                    'px; z-index:1;'
+                :style="'position:absolute; top:' +item.top +'px; left:' +item.left +'px; z-index:1;'
                 "
             >
                 <font :style="'font-size: ' + item.size + 'px;color:#fff;'">
@@ -60,13 +55,7 @@
             </a>
         </section>
         <div
-            style="
-                position: relative;
-                z-index: 2;
-                margin: auto;
-                margin-top: -30px;
-                width: 64rem;
-            "
+            style="position: relative;z-index: 2;margin: auto;margin-top: -30px;width: 64rem;"
         >
             <el-card shadow="never" :body-style="{ padding: '0px' }">
                 <el-row>
@@ -240,9 +229,7 @@
                 </el-col>
                 <el-col :span="18" style="padding-left: 10px">
                     <section>
-                        <transition name="fade">
-                            <router-view />
-                        </transition>
+                        <router-view />
                     </section>
                 </el-col>
             </el-row>
@@ -356,7 +343,7 @@ export default {
                 active: '',
             },
             randomIcon: [],
-            audioAutoPlay: false,
+            audioAutoPlay: true,
         };
     },
     components: {

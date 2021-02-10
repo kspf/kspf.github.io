@@ -1,8 +1,14 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: 马琳峰
+ * @Date: 2021-02-03 17:53:36
+ * @LastEditors: 马琳峰
+ * @LastEditTime: 2021-02-09 10:55:07
+-->
 <template>
   <section>
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    <router-view></router-view>
   </section>
 </template>
 
