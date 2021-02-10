@@ -1,17 +1,1 @@
-{
-    "githubUsername": "kspf",
-    "blogTitle": "kspf",
-    "blogDescribe": "欢迎来到开水泡饭的个人博客。",
-    "htmlTitle": "开水泡饭的博客",
-    "fontColor": "#ffffff",
-    "useBackgroundImage": false,
-    "backgroundColorLeft": "#2690F9",
-    "content":"",
-    "backgroundColorRight": "#FC2D2D",
-    "audioUrl": "/mis.mp3",
-    "mini": false,
-    "webSites":[
-        {"name":"博客" , "url":"http://typecho.heart.xn--6qq986b3xl/"},
-        {"name":"nuxttest" , "url":"http://re.heart.xn--6qq986b3xl/"}
-    ]
-}
+{"githubUsername":"kspf","blogTitle":"kspf","blogDescribe":"欢迎来到开水泡饭的个人博客。","htmlTitle":"开水泡饭的博客","fontColor":"#ffffff","useBackgroundImage":false,"backgroundColorLeft":"#2690F9","content":"","backgroundColorRight":"#FC2D2D","audioUrl":"/mis.mp3","mini":false,"webSites":[{"name":"博客","url":"http://typecho.heart.xn--6qq986b3xl/"},{"name":"nuxttest","url":"http://re.heart.xn--6qq986b3xl/"}]}
